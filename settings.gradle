@@ -1,0 +1,5 @@
+rootProject.name = 'gradle-demo'
+include 'gradle-entity'     //对应表的实体类模块
+include 'gradle-app'        //后台服务接口模块
+include 'gradle-common'     //公共配置  如：工具类
+

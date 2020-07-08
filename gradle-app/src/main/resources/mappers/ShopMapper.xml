@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sfy.mapper.ShopMapper">
+
+    <resultMap id="shopMap" type="com.sfy.entity.Shop">
+        <id column="shopId" property="shopId"></id>
+        <result column="shopName" property="shopName"></result>
+        <result column="picUrl" property="picUrl"></result>
+        <result column="shopTime" property="shopTime"></result>
+        <association property="shopType" javaType="com.sfy.entity.ShopType">
+            <id column="typeId" property="typeId"></id>
+            <result column="typeName" property="typeName"></result>
+        </association>
+    </resultMap>
+
+    <select id="getShopList" resultMap="shopMap">
+        select
+          s.shop_id shopId,
+          s.shop_name shopName,
+          s.pic_url picUrl,
+          s.shop_time shopTime,
+          t.type_id typeId,
+          t.type_name typeName
+        from
+          shop0702 s
+        left join
+          type0702 t
+        on
+          s.type_id = t.type_id
+        WHERE
+		  s.entity_id = 1
+    </select>
+
+    <select id="getTypeList" resultType="com.sfy.entity.ShopType">
+        select
+          type_id typeId,
+          type_name typeName
+        from
+          type0702
+    </select>
+
+
+    <insert id="addShop" parameterType="com.sfy.entity.Shop" keyProperty="shopId" useGeneratedKeys="true">
+        insert into shop0702(shop_name,shop_time,pic_url,type_id,entity_id)
+        values (#{shop.shopName},#{shop.shopTime},#{shop.picUrl},#{shop.shopType.typeId},1)
+    </insert>
+
+    <select id="selectShopById" resultMap="shopMap" parameterType="String">
+        select
+          s.shop_id shopId,
+          s.shop_name shopName,
+          s.pic_url picUrl,
+          s.shop_time shopTime,
+          t.type_id typeId,
+          t.type_name typeName
+        from
+          shop0702 s
+        left join
+          type0702 t
+        on
+          s.type_id = t.type_id
+        WHERE
+		  s.entity_id = 1 and s.shop_id = #{shopId}
+    </select>
+
+
+    <update id="deleteShopById" parameterType="String">
+        update shop0702 s set s.entity_id = 0 where s.shop_id = #{shopId}
+    </update>
+
+
+    <update id="updateShop" parameterType="com.sfy.entity.Shop">
+        update
+          shop0702 s
+        set
+          s.shop_name = #{shop.shopName},
+          s.type_id = #{shop.shopType.typeId},
+          s.shop_time = #{shop.shopTime},
+          s.pic_url = #{shop.picUrl}
+        where
+          s.shop_id = #{shop.shopId}
+          and
+          s.entity_id = 1
+    </update>
+</mapper>

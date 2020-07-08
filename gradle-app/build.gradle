@@ -1,0 +1,17 @@
+//增加插件
+apply plugin:'org.springframework.boot'
+
+apply plugin: 'war'
+
+//依赖管理
+dependencies {
+    //模块依赖
+    api project(":gradle-common")
+    api project(":gradle-entity")
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    //  打包成war包
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    compile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
+
+}
+
