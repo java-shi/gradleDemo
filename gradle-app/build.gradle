@@ -8,9 +8,9 @@ dependencies {
     //模块依赖
     api project(":gradle-common")
     api project(":gradle-entity")
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    //  打包成war包
-    //providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
-   
+    compile( 'org.springframework.boot:spring-boot-starter-web'){
+        exclude module: "spring-boot-starter-tomcat"
+    }
+
 }
 
