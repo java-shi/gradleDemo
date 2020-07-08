@@ -57,6 +57,7 @@ subprojects {
         implementation 'org.codehaus.groovy:groovy'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
         compile('org.projectlombok:lombok:1.18.2')
+        annotationProcessor('org.projectlombok:lombok:1.18.2')
         compile('mysql:mysql-connector-java')
         compile('com.alibaba:fastjson:1.2.5')
         implementation 'org.springframework.boot:spring-boot-starter-freemarker'

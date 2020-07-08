@@ -1,0 +1,8 @@
+bootJar{
+    baseName = 'gradleDemo-common'
+    enabled = false
+}
+jar{
+    baseName = 'gradleDemo-common'
+    enabled = true
+}

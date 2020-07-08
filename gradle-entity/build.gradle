@@ -1,0 +1,8 @@
+bootJar{
+    baseName = 'gradleDemo-entity'
+    enabled = false
+}
+jar{
+    baseName = 'gradleDemo-entity'
+    enabled = true
+}

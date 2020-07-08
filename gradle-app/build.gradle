@@ -10,7 +10,7 @@ dependencies {
     api project(":gradle-entity")
     implementation 'org.springframework.boot:spring-boot-starter-web'
     //  打包成war包
-    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    //providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
    
 }
 
