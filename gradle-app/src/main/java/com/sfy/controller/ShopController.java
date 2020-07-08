@@ -133,4 +133,9 @@ public class ShopController {
     public Result selectShopById(@PathVariable("shopId") String shopId){
         return shopService.selectShopById(shopId);
     }
+
+    @RequestMapping(method = RequestMethod.GET,path = "/getDemo")
+    public String getDemo(){
+        return "hello";
+    }
 }
