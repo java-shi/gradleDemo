@@ -1,8 +1,10 @@
-spring:
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/demo?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
-    username: root
-    password: root
-mybatis:
-  mapper-locations: mappers/*.xml
+app:
+  id: gradle-demo
+apollo:
+  meta: http://192.168.25.1:8080
+  bootstrap:
+    enabled: true
+    eagerLoad:
+      enabled: true
+    namespace: application
+  cluster: SHAJQ

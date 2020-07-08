@@ -1,5 +1,6 @@
 package com.sfy;
 
+import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,6 +11,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  * @Author: Sfy
  * @Date: 2020/7/7 0007
  */
+@EnableApolloConfig
 @SpringBootApplication
 @MapperScan("com.sfy.mapper")
 public class MyApp extends SpringBootServletInitializer {
